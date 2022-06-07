@@ -1,4 +1,7 @@
-﻿namespace BirdsList
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace BirdsList
 {
     internal class Program
     {
@@ -14,7 +17,8 @@
                 new Duck() { Kind = KindOfDuck.nur, Size = 33 };
             }
 
-            Bird.FlyAway(ducks, "Minnesota");
+            IEnumerable<Bird> upcastDucks = ducks;
+            Bird.FlyAway(upcastDucks.ToList(), "Minnesota");
         }
     }
 }
